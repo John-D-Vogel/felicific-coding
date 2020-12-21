@@ -1,0 +1,11 @@
+setwd("~/Documents/Eco 4000/Data Sets- R")
+load("hprice2.RData")
+attach(data)
+desc
+d1 <- ifelse(crime<0.082,1,0)
+d2 <- ifelse(crime>=0.082 & crime<0.2565,1,0)
+d3 <- ifelse(crime>=0.2565 & crime<3.6115,1,0)
+d4 <- ifelse(crime>=3.6115,1,0)
+m <- lm(price ~ rooms + d1 + d3 + d4)
+summary(m)
+length(price)

@@ -1,0 +1,11 @@
+setwd("~/Documents/Eco 4000/Data Sets- R")
+load("mroz.RData")
+attach(data)
+desc
+m <- lm(wage ~ educ)
+summary(m)
+m1 <- lm(educ ~ fatheduc + motheduc)
+predictedEduc <- fitted(m1)
+m2 <- lm(wage ~ predictedEduc)
+summary(m2)
+summary(m1)
